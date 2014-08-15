@@ -1,0 +1,16 @@
+syn on
+set smd
+set hls
+set backspace=indent,eol,start
+set autoindent
+set expandtab
+set sw=4
+set ts=4
+"filetype plugin on
+
+"map <C-T> :TlistToggle
+
+colors evening
+
+au BufRead mutt-* set ft=mail
+au BufRead mutt-* setlocal fo+=aw

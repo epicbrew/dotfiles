@@ -1,0 +1,19 @@
+out_to_x no
+out_to_console yes
+update_interval 1.0
+total_run_times 0
+use_spacer none
+
+#Add the following lines and uncomment for wireless networking
+#WIRELESS NETWORKING
+ # ${exec iwconfig eth1 | grep "ESSID" | cut -c 11-}
+ # ${exec iwconfig eth1 | grep "Frequency" | cut -c 25-}
+ # Local IP: ${addr eth1} 
+ # Total Download:  ${totaldown eth1}
+ # Total Upload:  ${totalup eth1}
+ # Down:  ${downspeed eth1}K/s ${alignr} Up:  ${upspeed eth1}K/s
+ # ${downspeedgraph eth1 15,90 ff0000 0000ff} ${alignr} ${upspeedgraph eth1 15,90 0000ff ff0000}
+
+
+TEXT
+${time %R %a,%d-%#b-%y} | ${alignc}${nodename} | Uptime: ${uptime_short} | CPU @ ${cpu}% | MEM @ $memperc% $mem/$memmax |  IP: ${addr eth0} 

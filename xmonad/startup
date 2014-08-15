@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#export OOO_FORCE_DESKTOP=gnome
+
+xsetroot -cursor_name left_ptr
+
+trayer --edge top --align right --SetDockType true --SetPartialStrut true \
+ --expand true --width 5 --transparent true --tint 0x191970 --height 12 &
+
+xset -b
+eval `cat ~/.fehbg`
+
+xscreensaver -no-splash &
+
+exec xmonad

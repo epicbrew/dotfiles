@@ -1,0 +1,29 @@
+syn on
+set smd
+set hls
+set backspace=indent,eol,start
+set tb=icons,tooltips
+set ru
+set lines=30
+set columns=90
+set cursorline
+
+" Key mappings for one button comment/uncomment
+
+map  <F1> i<Home><!--<End>--><Home><Esc>
+map! <F1> <Home><!--<End>--><Home>
+map  <F2> <Home>4x<End>xxx<Home>
+map! <F2> <Esc><Home>4x<End>xxx<Home>i
+
+map  <F3> i<Home>/*<End>*/<Home><Esc>
+map! <F3> <Home>/*<End>*/<Home>
+map  <F4> <Home>2x<End>xx<Home>
+map! <F4> <Esc><Home>2x<End>xx<Home>i
+
+" Make shift-insert work like in Xterm
+map <S-Insert> <MiddleMouse>
+map! <S-Insert> <MiddleMouse>
+
+" Abbreviations
+ab sout System.out.println(");<esc>hhi
+
