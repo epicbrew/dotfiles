@@ -6,10 +6,11 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
                     , Run MultiCpu ["-t", "Cpu: <total0>% / <total1>%", "-L","3","-H","50","--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Swap [] 10
+                    , Run Battery ["-t","Batt: <left>%","-L","25","-H","75","--low","#FF0000","--normal","#F9FF00","--high","#00FF00"] 600
                     , Run Date "%a %b %_d %l:%M" "date" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %multicpu% | %memory% * %swap% |   <fc=#ee9a00>%date%</fc> | %KIAD%"
+       , template = "%StdinReader% }{ %multicpu% | %memory% * %swap% %battery% |   <fc=#ee9a00>%date%</fc> | %KIAD%"
        }
