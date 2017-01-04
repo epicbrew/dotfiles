@@ -24,6 +24,3 @@ map! <F4> <Esc><Home>2x<End>xx<Home>i
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
-" Abbreviations
-ab sout System.out.println(");<esc>hhi
-
