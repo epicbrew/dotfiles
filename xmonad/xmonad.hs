@@ -15,8 +15,8 @@ import Graphics.X11.ExtraTypes.XF86
 import System.IO
 import Data.Monoid
 
---myWorkspaces = [ "1", "2", "3", "4", "5", "6", "7", "8", "web", "vm" ]
-myWorkspaces = [ "1", "2", "3", "4", "5", "6", "7", "web", "vm" ]
+--myWorkspaces = [ "1", "2", "3", "4", "5", "6", "7", "web", "vm" ]
+myWorkspaces = [ "mail", "scratch", "code", "web", "vm" ]
 
 main = do
     xmproc <- spawnPipe "/home/mshildt/.cabal/bin/xmobar /home/mshildt/.xmonad/xmobarrc"
@@ -44,17 +44,17 @@ myKeys =
     , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master,0 5%+")
     , ((mod4Mask, xK_F11),           spawn "pkill -USR1 xmobar")
     , ((mod4Mask .|. shiftMask, xK_BackSpace), removeWorkspace)
-    , ((mod4Mask .|. shiftMask, xK_v      ), selectWorkspace defaultXPConfig)
+    , ((mod4Mask, xK_o                    ), selectWorkspace defaultXPConfig)
+    , ((mod4Mask, xK_Tab                  ), selectWorkspace defaultXPConfig)
     , ((mod4Mask, xK_m                    ), withWorkspace defaultXPConfig (windows . W.shift))
     , ((mod4Mask .|. shiftMask, xK_m      ), withWorkspace defaultXPConfig (windows . copy))
     , ((mod4Mask .|. shiftMask, xK_r      ), renameWorkspace defaultXPConfig)
     , ((mod4Mask, xK_a      ), addWorkspacePrompt defaultXPConfig)
-    , ((mod4Mask, xK_o      ), selectWorkspace defaultXPConfig)
     , ((mod4Mask, xK_x      ), shellPrompt defaultXPConfig)
     ]
     ++
     [((m .|. mod4Mask, key), screenWorkspace sc >>= flip whenJust (windows . f)) -- Replace 'mod1Mask' with your mod key of choice.
-    | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,2,1] -- was [0..] *** change to match your screen order ***
+    | (key, sc) <- zip [xK_w, xK_e, xK_r] [1,2,0] -- was [0..] *** change to match your screen order ***
     , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
     ++
     zip (zip (repeat (mod4Mask)) [xK_1..xK_9]) (map (withNthWorkspace W.greedyView) [0..])

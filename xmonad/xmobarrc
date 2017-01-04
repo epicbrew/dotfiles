@@ -8,9 +8,10 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
                     , Run Swap [] 10
                     , Run Battery ["-t","Batt: <left>%","-L","25","-H","75","--low","#FF0000","--normal","#F9FF00","--high","#00FF00"] 600
                     , Run Date "%a %b %_d %l:%M" "date" 10
+                    , Run Mail [("inbox", "~/mutt/Maildir/INBOX")] "mail"
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %multicpu% | %memory% * %swap% %battery% |   <fc=#ee9a00>%date%</fc> | %KIAD%"
+       , template = "%StdinReader% }{ %mail% | %multicpu% | %memory% * %swap% %battery% |   <fc=#ee9a00>%date%</fc> | %KIAD%"
        }
